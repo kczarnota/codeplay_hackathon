@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Client.scss';
 import {apiUrl, getHeaders, getHeadersFD, handleResponse} from "../../service/api.config";
+import {getGuyAccountFounds, getTransferOfGivenGuy} from "./Util.js"
 
 
 function get(url, data) {
@@ -11,66 +12,41 @@ function get(url, data) {
     }).then(handleResponse);
 }
 
-async function getTransferOfGivenGuy(clientId) {
-        var x = []
-        var response = await fetch(`${apiUrl}loans-deposits/cb/current-accounts/v1/current-accounts?customerId=${clientId}`, {
-            method: 'get',
-            headers: getHeaders()
-        }
-        )
-        var j = await response.json()
-        var j = j.content[0]
-
-        var response = await fetch(`${apiUrl}payments/cb/v1/documents/entries/contract?contractId=${j.id}`, {
-            method: 'get',
-            headers: getHeaders()
-        }
-        )
-        var j = await response.json()
-        for (var i = 0; i < j.content.length; i++) {
-            var k = j.content[i]
-            var response = await fetch(`${apiUrl}payments/cb/v1/documents/${k.documentId}`, {
-                method: 'get',
-                headers: getHeaders()
-            }
-            )
-            var m = await response.json()
-            x.push(m)
-        }
-        return x;
-}
 
 const Client = (props) => {
   const [data, setData] = useState(
       {
           client: {},
           transfers: [],
+          founds: 0,
       }
     )
 
     useEffect(() =>{
       const fetchData = async () => {
         const r = await getTransferOfGivenGuy(props.clientId)
+        const founds = await getGuyAccountFounds(props.clientId)
         const response = await fetch(`${apiUrl}customer-management/cb/v1/customers/${props.clientId}`, {
             method: 'get',
             headers: getHeaders()
         }
         )
         let j = await response.json()
-        setData({client: j, transfers: r})
+        setData({client: j, transfers: r, founds: founds})
       }
     fetchData()
     },[]);
 
     const renderTableData = () => {
       return data.transfers.map((transaction, index) => {
-         const { id, sign, description, amount } = transaction
+         const { id, documentPackId, sign, description, amount, dates } = transaction
          return (
             <tr key={id}>
+               <td>{index+1}</td>
                <td>{id}</td>
-               <td>{sign}</td>
                <td>{amount.requested.amount}</td>
                <td>{amount.requested.currency}</td>
+               <td>{dates.bookingDate}</td>
                <td>{description}</td>
             </tr>
          )
@@ -88,6 +64,9 @@ const Client = (props) => {
                 <h1 className="display-3">
                 {data.client.shortName}
                 </h1>
+                <h2>
+                {data.founds}
+                </h2>
                 <p className="lead">
                 Dane klienta:
                 </p>
@@ -103,8 +82,10 @@ const Client = (props) => {
                 <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">ID</th>
                     <th scope="col">Kwota</th>
                     <th scope="col">Waluta</th>
+                    <th scope="col">Data przelewu</th>
                     <th scope="col">Opis</th>
                 </tr>
                 </thead>
