@@ -32,11 +32,16 @@ export class Suggestions extends Component {
     render() {
         return (
             <div className={"suggestions " + (this.props.app.showSuggestions ? "suggestions--open" : "")}>
-                <div>
+                <div className="hof">
                     <div className="suggestions__header">
                         Sugestie <span className="suggestions__close" onClick={() => this.closeSuggestions()}>X</span>
                     </div>
-                    <div className="suggestions__content">
+                    <div className="coinContainer">
+                        <img class="coinImg" src="https://art.pixilart.com/d0ace7554e0b398.gif" alt="Coin"></img>
+                        <button style={{"float": "left"}} type="button" class="btn btn-warning">Twoje monety: 100</button>
+                        <img class="coinImg" src="https://art.pixilart.com/d0ace7554e0b398.gif" alt="Coin"></img>
+                    </div>
+                    <div style={{"clear": "left"}} className="suggestions__content">
                         {this.state.suggestions.map((item, index) => (
                             <div key={index}
                                  className={"suggestion " + (item.type === 'OFFER' ? "suggestion--offer " : "suggestion--suggestion ")
@@ -51,7 +56,6 @@ export class Suggestions extends Component {
                     </div>
                 </div>
                 <div>
-
                 </div>
             </div>
         )

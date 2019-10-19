@@ -2,6 +2,7 @@
 
 .suggestions {
   display: flex;
+  overflow: auto;
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
@@ -93,4 +94,23 @@
     padding: 0;
     margin-bottom: 0;
   }
+}
+
+.hof {
+    overflow: hidden;
+}
+
+.coinImg {
+    width: 40px;
+    display: inline-block;
+    float: left;
+}
+
+
+.coinContainer {
+    margin: auto;
+    text-align: center;
+    float: unset;
+    display: flex;
+    align-items: center;
 }

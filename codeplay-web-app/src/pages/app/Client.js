@@ -77,6 +77,9 @@ const Client = (props) => {
                     <p><strong>Kwota:</strong> {data.founds.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} EUR</p>
                 </div>
             </div>
+            <h2>
+            Lista ostatnich transferów:
+            </h2>
             <table className="table">
                 <thead>
                 <tr>
