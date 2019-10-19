@@ -65,7 +65,7 @@ const Client = (props) => {
                 {data.client.shortName}
                 </h1>
                 <h2>
-                {data.founds}
+                Kwota na koncie: {data.founds.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} EUR
                 </h2>
                 <p className="lead">
                 Dane klienta:
