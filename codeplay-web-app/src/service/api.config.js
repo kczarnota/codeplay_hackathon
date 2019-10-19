@@ -1,4 +1,4 @@
-export const apiUrl = 'https://developer.banking.asseco.pl/api/market-data/cb/v1';
+export const apiUrl = 'https://developer.banking.asseco.pl/api/';
 
 export function getHeaders() {
     const headers = { 'Content-type': 'application/json' };
