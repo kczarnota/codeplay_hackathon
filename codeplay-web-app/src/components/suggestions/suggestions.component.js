@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {connect} from "react-redux";
 import {Suggestions as data} from "../../mock/suggestions.data";
 import {setShowSuggestionsDispatcher} from "../../store/app/app.actions";
+import { Button } from 'react-bootstrap';
 
 const Suggestions = (props) => {
     const [suggestions, setSuggestions] = useState(data);
@@ -24,12 +25,13 @@ const Suggestions = (props) => {
             </div>
             <div className="suggestions__content">
                 {suggestions.map((item, index) => (
-                    <div className={"suggestion " + (item.type === 'OFFER' ? "suggestion--offer " : "suggestion--suggestion ")
+                    <div key={index} className={"suggestion " + (item.type === 'OFFER' ? "suggestion--offer " : "suggestion--suggestion ")
                     + (item.archived ? "suggestion--archived" : "")}>
                         <p className="suggestion__header">{item.title}
                         <span className="suggestion__close" onClick={() => removeSuggestion(index)}>X</span>
                         </p>
                         <p className="suggestion__description">{item.description}</p>
+                        <Button variant="light" href="/lokaty">Idź</Button>
                     </div>
                 ))}
             </div>
