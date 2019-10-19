@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './Client.scss';
-import {connect} from "react-redux";
-import {apiService} from "../../service/api.service.js";
 import {apiUrl, getHeaders, getHeadersFD, handleResponse} from "../../service/api.config";
 
 
@@ -101,19 +99,19 @@ const Client = (props) => {
                     <a className="btn btn-primary btn-lg" href="#!" role="button">Edytuj dane</a>
                 </p>
             </div>
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Kwota</th>
-      <th scope="col">Waluta</th>
-      <th scope="col">Opis</th>
-    </tr>
-  </thead>
-  <tbody>
-        {renderTableData()}
-  </tbody>
-</table>
+            <table className="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Kwota</th>
+                    <th scope="col">Waluta</th>
+                    <th scope="col">Opis</th>
+                </tr>
+                </thead>
+                <tbody>
+                {renderTableData()}
+                </tbody>
+            </table>
         </div>
     )
 };

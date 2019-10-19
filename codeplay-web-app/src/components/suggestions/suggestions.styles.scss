@@ -71,24 +71,22 @@
 
 
 @keyframes removeSuggestion {
-  40% {
+  50% {
     right: -300px;
-    height: 100%;
+    max-height: 100%;
     padding: 15px;
+    margin-bottom: 10px;
   }
-  40% {
+  50% {
     right: -300px;
-    height: 100%;
+    max-height: 100%;
     padding: 15px;
-  }
-  80% {
-    right: -300px;
-    height: 0;
-    padding: 0;
+    margin-bottom: 10px;
   }
   100% {
     right: -300px;
-    height: 1%;
+    max-height: 0;
     padding: 0;
+    margin-bottom: 0;
   }
 }

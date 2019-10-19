@@ -5,5 +5,5 @@ export const appService = {
 };
 
 function getTaxOffices() {
-    return apiService.get('/tax-offices')
+    return apiService.get('market-data/cb/v1/tax-offices')
 }

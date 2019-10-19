@@ -3,7 +3,7 @@ export const Suggestions = [
         type: 'SUGGESTION',
         title: 'Zwiększ swoje oszczędności!',
         description: 'Miesięcznie na Twoim koncie zostaje ponad 300 zł, może chciałbyś odłożyć je na konto oszczędnościowe?',
-        context: '',
+        context: '/lokaty',
         archived: false,
     }, {
         type: 'OFFER',
