@@ -1,0 +1,47 @@
+@import "../../variables";
+
+.suggestions {
+  position: fixed;
+  right: -300px;
+  bottom: 0;
+  top: 0;
+  width: 300px;
+  background-color: white;
+  z-index: 1;
+  &--open {
+    right: 0;
+    transition: 1s;
+  }
+
+  &__header {
+    text-align: center;
+    padding: 10px 0;
+    background-color: $main-green;
+    font-weight: 600;
+    color: $bright-gray;
+  }
+
+  &__content {
+    padding: 5px;
+  }
+}
+
+.suggestion {
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid $gray;
+  margin-bottom: 10px;
+  &--offer {
+    background-color: $second-danger;
+  }
+  &--suggestion {
+    background-color: $bright-blue;
+  }
+  &__header {
+    margin: 0 0 5px 0;
+    font-weight: 500;
+  }
+  &__description {
+
+  }
+}

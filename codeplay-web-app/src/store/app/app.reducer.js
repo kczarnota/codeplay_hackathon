@@ -1,8 +1,9 @@
-import {SET_CUSTOM_VARIABLE, SET_TAX_OFFICES} from "./app.actions";
+import {SET_CUSTOM_VARIABLE, SET_SHOW_SUGGESTIONS, SET_TAX_OFFICES} from "./app.actions";
 
 const initialState = {
     customVariable: 0,
     taxOffices: null,
+    showSuggestions: false,
 };
 
 export function appReducer(state = initialState, action) {
@@ -17,6 +18,12 @@ export function appReducer(state = initialState, action) {
             return {
                 ...state,
                 taxOffices: action.payload
+            }
+        }
+        case SET_SHOW_SUGGESTIONS: {
+            return {
+                ...state,
+                showSuggestions: action.payload
             }
         }
         default: {
