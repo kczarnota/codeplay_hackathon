@@ -1,9 +1,13 @@
 .Container {
-  text-align: center;
   margin: auto;
   width: 80%;
   height: 80%;
 }
+
+.center {
+    text-align: center;
+}
+
 .ClientContainer{
   border-style: solid;
   background-color: #3641dc;

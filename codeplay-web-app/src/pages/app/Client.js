@@ -36,24 +36,26 @@ const Client = (props) => {
 
     return (
         <div className="Container">
-            <div>
-        <h1 className="Logo">
-            Polski Bank
-        </h1>
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="display-3 center">Polski bank</h1>
+                </div>
             </div>
-        <div className="ClientContainer">
-        Dane klienta:
-        <div className="toLeft">
-        <h2>
-            {data.client.shortName}
-        </h2>
-        </div>
-        <div className="toRight">
-        <h2>
-            {data.client.birthDate}
-        </h2>
-        </div>
-        </div>
+            <div className="jumbotron">
+                <h1 className="display-3">
+                {data.client.shortName}
+                </h1>
+                <p className="lead">
+                Dane klienta:
+                </p>
+                <hr className="my-2"></hr>
+                <p>
+                    {data.client.birthDate}
+                </p>
+                <p className="lead">
+                    <a className="btn btn-primary btn-lg" href="#!" role="button">Edytuj dane</a>
+                </p>
+            </div>
         </div>
     )
 };
