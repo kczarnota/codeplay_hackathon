@@ -8,12 +8,14 @@
   width: 300px;
   background-color: white;
   z-index: 1;
+  transition: 1s;
   &--open {
     right: 0;
     transition: 1s;
   }
 
   &__header {
+    position: relative;
     text-align: center;
     padding: 10px 0;
     background-color: $main-green;
@@ -21,27 +23,72 @@
     color: $bright-gray;
   }
 
+  &__close {
+    position: absolute;
+    right: 10px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
   &__content {
     padding: 5px;
   }
 }
 
 .suggestion {
+  position: relative;
   padding: 15px;
   border-radius: 3px;
   border: 1px solid $gray;
   margin-bottom: 10px;
+  right: 0;
+  height: 100%;
+  overflow: hidden;
   &--offer {
     background-color: $second-danger;
   }
   &--suggestion {
     background-color: $bright-blue;
   }
+  &--archived {
+    animation: removeSuggestion 2s ease-out;
+  }
   &__header {
+    display: flex;
+    justify-content: space-between;
     margin: 0 0 5px 0;
     font-weight: 500;
   }
   &__description {
 
+  }
+  &__close {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+
+@keyframes removeSuggestion {
+  40% {
+    right: -300px;
+    height: 100%;
+    padding: 15px;
+  }
+  40% {
+    right: -300px;
+    height: 100%;
+    padding: 15px;
+  }
+  80% {
+    right: -300px;
+    height: 0;
+    padding: 0;
+  }
+  100% {
+    right: -300px;
+    height: 1%;
+    padding: 0;
   }
 }
