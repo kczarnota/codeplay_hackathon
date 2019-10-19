@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './Client.scss';
 import {apiUrl, getHeaders, getHeadersFD, handleResponse} from "../../service/api.config";
 import {getGuyAccountFounds, getTransferOfGivenGuy} from "./Util.js"
-import {Button} from "react-bootstrap";
 
 
 function get(url, data) {
@@ -58,7 +57,7 @@ const Client = (props) => {
         <div className="container">
             <div className="row">
                 <div className="col-12">
-                    <h2 className="client__header">Polski bank</h2>
+                    <h2 className="client__header">Bank McKwacz</h2>
                 </div>
             </div>
             <div className="row client__box">
@@ -80,8 +79,8 @@ const Client = (props) => {
             <h2>
             Lista ostatnich transferów:
             </h2>
-            <table className="table">
-                <thead>
+            <table className="table table-striped">
+                <thead className="thead-dark">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">ID</th>

@@ -12,6 +12,12 @@
     display: none;
   }
 
+  &__group {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+  }
+
   &__item {
     padding: 15px 20px;
     height: 100%;
