@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Client.scss';
 import {apiUrl, getHeaders, getHeadersFD, handleResponse} from "../../service/api.config";
 import {getGuyAccountFounds, getTransferOfGivenGuy} from "./Util.js"
+import {Button} from "react-bootstrap";
 
 
 function get(url, data) {
@@ -54,29 +55,27 @@ const Client = (props) => {
    }
 
     return (
-        <div className="Container">
-            <div className="jumbotron jumbotron-fluid">
-                <div className="container">
-                    <h1 className="display-3 center">Polski bank</h1>
+        <div className="container">
+            <div className="row">
+                <div className="col-12">
+                    <h2 className="client__header">Polski bank</h2>
                 </div>
             </div>
-            <div className="jumbotron">
-                <h1 className="display-3">
-                {data.client.shortName}
-                </h1>
-                <h2>
-                Kwota na koncie: {data.founds.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} EUR
-                </h2>
-                <p className="lead">
-                Dane klienta:
-                </p>
-                <hr className="my-2"></hr>
-                <p>
-                    {data.client.birthDate}
-                </p>
-                <p className="lead">
-                    <a className="btn btn-primary btn-lg" href="#!" role="button">Edytuj dane</a>
-                </p>
+            <div className="row client__box">
+                    <div className="col-8">
+                        <h4><strong>Dane klienta:</strong></h4>
+                        <p><strong>Imię i nazwisko:</strong> {data.client.shortName}</p>
+                        <p><strong>Data urodzenia:</strong> {data.client.birthDate}</p>
+                    </div>
+                    <div className="col-4">
+                        {/*<img src={} alt="Zdjęcie profilowe" />*/}
+                    </div>
+            </div>
+            <div className="row">
+                <div className="col-12 client__box">
+                    <h4><strong>Informacje o koncie:</strong></h4>
+                    <p><strong>Kwota:</strong> {data.founds.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} EUR</p>
+                </div>
             </div>
             <table className="table">
                 <thead>

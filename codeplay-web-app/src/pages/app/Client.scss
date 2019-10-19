@@ -1,8 +1,17 @@
-.Container {
-  margin: auto;
-  width: 80%;
-  height: 80%;
+@import "../../variables";
+.client {
+  &__header {
+    text-align: center;
+    border-bottom: 1px solid $main-text;
+  }
+  &__box {
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid $bright-blue;
+    margin-bottom: 20px;
+  }
 }
+
 
 .center {
     text-align: center;
