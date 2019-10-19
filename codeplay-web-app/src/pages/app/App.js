@@ -15,6 +15,7 @@ const App = (props) => {
         <FloatingAvatar/>
         <Suggestions/>
         <Client clientId="105322"/>
+        <Client clientId="105323"/>
     </div>
   );
 };
