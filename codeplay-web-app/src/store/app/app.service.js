@@ -5,5 +5,5 @@ export const appService = {
 };
 
 function getSth() {
-    return apiService.get('')
+    return apiService.get('/tax-offices')
 }

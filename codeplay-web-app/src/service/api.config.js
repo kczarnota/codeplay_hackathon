@@ -1,18 +1,14 @@
-export const apiUrl = '';
+export const apiUrl = 'https://developer.banking.asseco.pl/api/market-data/cb/v1';
 
 export function getHeaders() {
     const headers = { 'Content-type': 'application/json' };
-    if (localStorage.getItem('token')) {
-        headers['X-Access-Token'] = localStorage.getItem('token');
-    }
+    headers['Authorization'] = 'Bearer ebe0caaf-874e-32ec-b9b0-55c4cf5b4a4c';
     return headers;
 }
 
 export function getHeadersFD() {
     const headers = { };
-    if (localStorage.getItem('token')) {
-        headers['X-Access-Token'] = localStorage.getItem('token');
-    }
+    headers['Authorization'] = 'Bearer ebe0caaf-874e-32ec-b9b0-55c4cf5b4a4c';
     return headers;
 }
 
