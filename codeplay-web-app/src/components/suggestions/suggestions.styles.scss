@@ -1,6 +1,9 @@
 @import "../../variables";
 
 .suggestions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: fixed;
   right: -300px;
   bottom: 0;
@@ -31,6 +34,8 @@
     }
   }
   &__content {
+    overflow: scroll;
+    max-height: 90%;
     padding: 5px;
   }
 }

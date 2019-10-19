@@ -32,21 +32,26 @@ export class Suggestions extends Component {
     render() {
         return (
             <div className={"suggestions " + (this.props.app.showSuggestions ? "suggestions--open" : "")}>
-                <div className="suggestions__header">
-                    Sugestie <span className="suggestions__close" onClick={() => this.closeSuggestions()}>X</span>
+                <div>
+                    <div className="suggestions__header">
+                        Sugestie <span className="suggestions__close" onClick={() => this.closeSuggestions()}>X</span>
+                    </div>
+                    <div className="suggestions__content">
+                        {this.state.suggestions.map((item, index) => (
+                            <div key={index}
+                                 className={"suggestion " + (item.type === 'OFFER' ? "suggestion--offer " : "suggestion--suggestion ")
+                                 + (item.archived ? "suggestion--archived" : "")}>
+                                <p className="suggestion__header">{item.title}
+                                    <span className="suggestion__close" onClick={() => this.removeSuggestion(index)}>X</span>
+                                </p>
+                                <p className="suggestion__description">{item.description}</p>
+                                <Link to={item.context}><Button variant="light">Idź</Button></Link>
+                            </div>
+                        ))}
+                    </div>
                 </div>
-                <div className="suggestions__content">
-                    {this.state.suggestions.map((item, index) => (
-                        <div key={index}
-                             className={"suggestion " + (item.type === 'OFFER' ? "suggestion--offer " : "suggestion--suggestion ")
-                             + (item.archived ? "suggestion--archived" : "")}>
-                            <p className="suggestion__header">{item.title}
-                                <span className="suggestion__close" onClick={() => this.removeSuggestion(index)}>X</span>
-                            </p>
-                            <p className="suggestion__description">{item.description}</p>
-                            <Link to={item.context}><Button variant="light">Idź</Button></Link>
-                        </div>
-                    ))}
+                <div>
+
                 </div>
             </div>
         )
