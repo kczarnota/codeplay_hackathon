@@ -1,9 +1,9 @@
 import {apiService} from "../../service/api.service";
 
 export const appService = {
-    getSth
+    getTaxOffices
 };
 
-function getSth() {
+function getTaxOffices() {
     return apiService.get('/tax-offices')
 }

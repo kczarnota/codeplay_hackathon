@@ -5,15 +5,17 @@ import {appActions} from "../../store/app/app.actions";
 
 const App = (props) => {
     useEffect(() =>{
-        _setCustomVariable();
-    },[props.app.customVariable]);
+        _setTaxOffices();
+    },[]);
 
-    const _setCustomVariable = () => {
-        props.dispatch(appActions.setCustomVariable(2))
+    const _setTaxOffices = () => {
+        props.dispatch(appActions.setTaxOffices())
     };
   return (
     <div className="App">
-        {props.app.customVariable}
+        {props.app.taxOffices && props.app.taxOffices.content.map((item) => (
+            <p key={item.id}>{item.address} {item.description}</p>
+        ))}
     </div>
   );
 };
